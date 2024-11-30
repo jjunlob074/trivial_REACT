@@ -8,7 +8,7 @@ const ContadorAciertos = ({ aciertos, totalQuestions }) => {
     };
   
     return (
-      <div className="bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700 p-6 rounded-lg shadow-lg text-white max-w-md mx-auto m-6">
+      <div className="w-full bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700 p-6 rounded-lg shadow-lg text-white max-w-md mx-auto m-6">
         <h3 className="text-2xl font-semibold text-center mb-4">Hits by Category</h3>
         <div className="grid grid-cols-[auto_auto_auto_auto] gap-4 text-center font-semibold">
             <div className="font-semibold text-lg">Category</div>

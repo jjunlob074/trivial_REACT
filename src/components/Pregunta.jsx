@@ -155,7 +155,9 @@ const Pregunta = ({ category, reload }) => {
             {isAnswerCorrect ? (
               <p className="text-green-500 font-semibold"><u>Correct answer! :)</u></p>
             ) : (
-              <p className="text-red-500 font-semibold"><u>Incorrect :( The correct answer was: <span className="font-bold">{question.correct_answer}</span></u></p>
+              <p className="text-red-500 font-semibold"><u>Incorrect :( The correct answer was:
+                <span className="font-bold" dangerouslySetInnerHTML={{ __html: question.correct_answer }} />
+                </u></p>
             )}
             <p className="mt-2 text-white font-medium">Category: {category}</p>
             <p className="mt-1 text-white font-medium">Correct answer percentage: {calculatePercentage(category).toFixed(2)}%</p>
