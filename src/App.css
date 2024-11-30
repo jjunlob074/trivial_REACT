@@ -1,0 +1,16 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    background-color: #222; /* Fondo oscuro */
+    color: #f4f4f4; /* Texto claro */
+    font-family: 'Arial', sans-serif; /* Fuente limpia y moderna */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
