@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ContadorAciertos from './ContadorAciertos';
+import confetti from 'canvas-confetti';
 
 const Pregunta = ({ category, reload }) => {
   const [question, setQuestion] = useState(null);
@@ -95,6 +96,11 @@ const Pregunta = ({ category, reload }) => {
 
     // Actualizar el contador de aciertos si la respuesta es correcta
     if (isCorrect) {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
       setAciertos(prevAciertos => ({
         ...prevAciertos,
         [category]: prevAciertos[category] + 1,
