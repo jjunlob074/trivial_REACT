@@ -1,3 +1,4 @@
+import React from "react";
 const ContadorAciertos = ({ aciertos, totalQuestions }) => {
 
     // Función para calcular el porcentaje de aciertos
@@ -16,20 +17,22 @@ const ContadorAciertos = ({ aciertos, totalQuestions }) => {
             <div className="font-semibold text-lg">Total</div>
             <div className="font-semibold text-lg">Percentage</div>
   
-          {Object.keys(aciertos).map((cat) => {
-            const aciertosCategory = aciertos[cat];
-            const totalQuestionsCategory = totalQuestions[cat];
-            const percentage = calculatePercentage(cat).toFixed(2);
-  
-            return (
-              <>
-                <div className="bg-white bg-opacity-20 p-3 rounded-lg shadow-md">{cat}</div>
-                <div className="bg-white bg-opacity-20 p-3 rounded-lg shadow-md">{aciertosCategory}</div>
-                <div className="bg-white bg-opacity-20 p-3 rounded-lg shadow-md">{totalQuestionsCategory}</div>
-                <div className="bg-white bg-opacity-20 p-3 rounded-lg shadow-md">{percentage} %</div>
-              </>
-            );
-          })}
+            {Object.keys(aciertos)
+              .sort((a, b) => calculatePercentage(b) - calculatePercentage(a)) // Ordenar por porcentaje
+              .map((cat) => {
+                const aciertosCategory = aciertos[cat];
+                const totalQuestionsCategory = totalQuestions[cat];
+                const percentage = calculatePercentage(cat).toFixed(2);
+
+                return (
+                  <React.Fragment key={cat}>
+                    <div className="bg-white bg-opacity-20 p-3 rounded-lg shadow-md">{cat}</div>
+                    <div className="bg-white bg-opacity-20 p-3 rounded-lg shadow-md">{aciertosCategory}</div>
+                    <div className="bg-white bg-opacity-20 p-3 rounded-lg shadow-md">{totalQuestionsCategory}</div>
+                    <div className="bg-white bg-opacity-20 p-3 rounded-lg shadow-md">{percentage} %</div>
+                  </React.Fragment>
+                );
+              })}
         </div>
       </div>
     );
